@@ -3,12 +3,10 @@ import Link from 'next/link';
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from '@/components/ui/navigation-menu';
 import { Button } from './button';
 import { GiHamburgerMenu } from 'react-icons/gi';
