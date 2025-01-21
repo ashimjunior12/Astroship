@@ -12,10 +12,17 @@ import { Button } from './button';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useState, useEffect } from 'react';
 import { IoCloseSharp } from 'react-icons/io5';
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
+
+
+
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
+  const pathName = usePathname();
 
+  console.log(pathName)
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -48,14 +55,14 @@ const Navbar = () => {
       <div
         className={`middle lg:flex gap-16 ${
           menu
-            ? 'flex flex-col mt-12 mb-12 p-2 backdrop-blur-xl items-start absolute w-full rounded'
+            ? 'flex flex-col mt-12 mb-12 p-2 bg-black  text-white items-start absolute w-full rounded'
             : 'hidden'
         }`}
       >
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className='text-md bg-none hover:text-black'>
+              <NavigationMenuTrigger className='text-md lg:hover:text-black hover:bg-none hover:text-gray-50'>
                 Features
               </NavigationMenuTrigger>
               <NavigationMenuContent className='flex flex-col gap-2 px-4 py-2'>
@@ -68,16 +75,59 @@ const Navbar = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Link href='/' className='mt-1 hover:text-black'>
+        <Link
+          href='/'
+          className={clsx(
+            'mt-1 lg:hover:text-black hover:text-gray-300',
+            pathName === '/' ? 'lg:text-black' : ''
+          )}
+          onClick={() => setMenu(false)}
+        >
+          Home
+        </Link>
+
+        <Link
+          href='/pricing'
+          className={clsx(
+            'mt-1 lg:hover:text-black hover:text-gray-300',
+            pathName === '/pricing' ? 'lg:text-black' : ''
+          )}
+          onClick={() => setMenu(false)}
+        >
           Pricing
         </Link>
-        <Link href='/' className='mt-1 hover:text-black'>
+        <Link
+          href='/about'
+          onClick={() => setMenu(false)}
+          className={clsx(
+            'mt-1 lg:hover:text-black hover:text-gray-300',
+            pathName === '/about' ? 'lg:text-black' : ''
+          )}
+        >
+          About
+        </Link>
+        <Link
+          href='/'
+          className='mt-1 lg:hover:text-black hover:text-gray-300'
+          onClick={() => setMenu(false)}
+        >
           Blog
         </Link>
-        <Link href='/' className='mt-1 hover:text-black'>
+        <Link
+          href='/contact'
+          className={clsx(
+            'mt-1 lg:hover:text-black hover:text-gray-300',
+            pathName === '/contact' ? 'lg:text-black' : ''
+          )}
+          onClick={() => setMenu(false)}
+        >
           Contact
         </Link>
-        <Link href='/' className='mt-1 relative hover:text-black'>
+        <Link
+          href='/'
+          className='mt-1 relative lg:hover:text-black hover:text-gray-300'
+          onClick={() => setMenu(false)}
+        >
           Pro Version{' '}
           <span className='border-2 p-1 text-white text-xs rounded-full absolute bottom-2 animate-colorPulse'>
             New
@@ -91,12 +141,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* <div className={`btn-container lg:flex gap-4 hidden`}>
-        <Button className='border-none bg-white text-black hover:bg-white'>
-          Login
-        </Button>
-        <Button>Sign up</Button>
-      </div> */}
       <Button
         className='bg-white text-black hover:bg-white block lg:hidden'
         onClick={() => setMenu(!menu)}

@@ -15,11 +15,6 @@ const Footer = () => {
           Get Started
         </Button>
       </div>
-      <div className='my-10 text-center'>
-        <p className='text-gray-600 text-lg'>
-          Copyright &copy;2024 Astroship. All rights reserved
-        </p>
-      </div>
     </div>
   );
 };

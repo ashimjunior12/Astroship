@@ -8,6 +8,7 @@ import {
   FaUsers,
   FaAngular
 } from 'react-icons/fa';
+import { TiTick } from 'react-icons/ti';
 import {
   SiAstro,
   SiTailwindcss,
@@ -18,6 +19,10 @@ import {
 import { RiSvelteFill } from 'react-icons/ri';
 
 import { IconType } from 'react-icons';
+import img1 from '@/public/images/img1.jpeg'
+import img2 from '@/public/images/img2.jpeg'
+import img3 from '@/public/images/img3.jpeg'
+import { StaticImageData } from 'next/image';
 
 export interface Feature {
   id: number;
@@ -118,5 +123,87 @@ export const ReactIcons:Icons[] = [
   {
     id: 6,
     icon: FaHtml5,
+  },
+];
+
+export interface PricingPlan{
+  id: number;
+  name: string;
+  price: string;
+  features: {icon: IconType; text:string}[];
+  buttonLabel: string;
+}
+
+export const pricingPlan: PricingPlan[] = [
+  {
+    id: 1,
+    name: 'Personal',
+    price: 'Free',
+    features: [
+      { icon: TiTick, text: 'Lifetime Free' },
+      { icon: TiTick, text: 'Up to 3 users' },
+      { icon: TiTick, text: 'Unlimited Pages' },
+      { icon: TiTick, text: 'Astro Sub domain' },
+      { icon: TiTick, text: 'Basic Integrations' },
+      { icon: TiTick, text: 'Community Support' },
+    ],
+    buttonLabel: 'Explore',
+  },
+  {
+    id: 2,
+    name: 'Startup',
+    price: '$19',
+    features: [
+      { icon: TiTick, text: 'All Free Features' },
+      { icon: TiTick, text: 'Up to 20 users' },
+      { icon: TiTick, text: '20 Custom domains' },
+      { icon: TiTick, text: 'Unlimited Collaborators' },
+      { icon: TiTick, text: 'Advanced Integrations' },
+      { icon: TiTick, text: 'Priority Support' },
+    ],
+    buttonLabel: 'Get Started',
+  },
+  {
+    id: 3,
+    name: 'Enterprise',
+    price: 'Custom',
+    features: [
+      { icon: TiTick, text: 'All Pro Features' },
+      { icon: TiTick, text: 'Unlimited Custom domains' },
+      { icon: TiTick, text: '99.99% Uptime SLA' },
+      { icon: TiTick, text: 'SAML & SSO Integration' },
+      { icon: TiTick, text: 'Dedicated Account Manager' },
+      { icon: TiTick, text: '24/7 Phone Support' },
+    ],
+    buttonLabel: 'Contact us',
+  },
+];
+
+
+export interface About{
+  id: number;
+  name: string;
+  role: string;
+  image: StaticImageData
+}
+
+export const aboutData: About[] = [
+  {
+    id: 1,
+    name: 'Robert Palmer',
+    role: 'Senior Director',
+    image: img1,
+  },
+  {
+    id: 2,
+    name: 'Marcell Ziemann',
+    role: 'Principal Strategist',
+    image: img2,
+  },
+  {
+    id: 3,
+    name: 'Janette Lynch',
+    role: 'Marketing Engineer',
+    image: img3,
   },
 ];

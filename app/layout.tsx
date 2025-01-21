@@ -19,9 +19,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${poppins.className} antialiased px-14 my-5`}>
-       <Navbar />
+        <Navbar />
 
         {children}
+      <div className='my-10 text-center'>
+        <p className='text-gray-600 text-lg'>
+          Copyright &copy;2024 Astroship. All rights reserved
+        </p>
+      </div>
       </body>
     </html>
   );
