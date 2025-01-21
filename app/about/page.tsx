@@ -15,7 +15,7 @@ const page = () => {
       <div className='footer mt-16'>
         <h2 className='text-3xl font-bold'>Empowering the world with Astro.</h2>
         <p className='text-lg mt-2 text-gray-500'>
-          We're a multi-cultural team from around the world! We come from
+          We&apos;re a multi-cultural team from around the world! We come from
           diverse backgrounds, bringing different personalities, experiences and
           skills to the job. This is what makes our team so special.
         </p>
