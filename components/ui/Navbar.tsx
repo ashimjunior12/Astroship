@@ -107,8 +107,11 @@ const Navbar = () => {
           About
         </Link>
         <Link
-          href='/'
-          className='mt-1 lg:hover:text-black hover:text-gray-300'
+          href='/blog'
+          className={clsx(
+            'mt-1 lg:hover:text-black hover:text-gray-300',
+            pathName === '/blog' ? 'lg:text-black' : ''
+          )}
           onClick={() => setMenu(false)}
         >
           Blog

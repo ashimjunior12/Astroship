@@ -207,3 +207,4 @@ export const aboutData: About[] = [
     image: img3,
   },
 ];
+
